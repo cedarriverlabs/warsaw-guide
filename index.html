@@ -67,11 +67,7 @@
       gap: 1rem;
       margin-bottom: 0.85rem;
     }
-    h2 {
-      font-size: 1.1rem;
-      margin: 0;
-      font-weight: 650;
-    }
+    h2 { font-size: 1.1rem; margin: 0; font-weight: 650; }
     .hint { font-size: 0.85rem; color: var(--muted); }
     .card {
       background: var(--panel);
@@ -85,8 +81,15 @@
       gap: 1rem;
       padding: 1rem 1.15rem;
       border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.12s ease;
     }
     .event:last-child { border-bottom: none; }
+    .event:hover { background: #f8fafc; }
+    .event:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+    }
     .date-box {
       text-align: center;
       background: var(--accent-soft);
@@ -156,6 +159,107 @@
       margin-bottom: 1.5rem;
     }
     .empty { padding: 1.25rem; color: var(--muted); font-size: 0.95rem; }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 50;
+      padding: 1rem;
+    }
+    .overlay.open { display: flex; }
+    @media (min-width: 640px) {
+      .overlay { align-items: center; }
+    }
+    .modal {
+      background: var(--panel);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 440px;
+      max-height: 90vh;
+      overflow: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+      padding: 1.35rem 1.35rem 1.25rem;
+    }
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .modal h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .close-btn {
+      border: none;
+      background: var(--bg);
+      color: var(--muted);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .close-btn:hover { background: var(--border); color: var(--fg); }
+    .modal-row {
+      font-size: 0.92rem;
+      color: var(--fg);
+      margin: 0.35rem 0;
+    }
+    .modal-row span.label {
+      color: var(--muted);
+      display: inline-block;
+      min-width: 4.5rem;
+    }
+    .modal-blurb {
+      margin: 1rem 0 1.15rem;
+      font-size: 0.95rem;
+      color: var(--fg);
+      line-height: 1.55;
+    }
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .btn {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.55rem 0.95rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--fg);
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { filter: brightness(1.05); text-decoration: none; }
+    .btn:hover { text-decoration: none; }
+    .modal-src {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -214,8 +318,26 @@
     </footer>
   </div>
 
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal" id="modal">
+      <div class="modal-top">
+        <div>
+          <div class="modal-src" id="modal-src"></div>
+          <h3 id="modal-title"></h3>
+        </div>
+        <button type="button" class="close-btn" id="close-btn" aria-label="Close">×</button>
+      </div>
+      <div class="modal-row"><span class="label">When</span> <span id="modal-when"></span></div>
+      <div class="modal-row"><span class="label">Where</span> <span id="modal-where"></span></div>
+      <p class="modal-blurb" id="modal-blurb"></p>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+
   <script>
     const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let allEvents = [];
 
     function formatTime(iso, allDay) {
       if (allDay) return "All day";
@@ -227,6 +349,16 @@
       });
     }
 
+    function formatFullWhen(iso, allDay) {
+      const d = new Date(iso);
+      const day = DAYS[d.getDay()];
+      const month = MONTHS[d.getMonth()];
+      const date = d.getDate();
+      const year = d.getFullYear();
+      if (allDay) return day + ", " + month + " " + date + ", " + year + " · All day";
+      return day + ", " + month + " " + date + ", " + year + " · " + formatTime(iso, false);
+    }
+
     function shortLocation(loc) {
       if (!loc) return "";
       return loc
@@ -235,13 +367,59 @@
         .trim();
     }
 
+    function openModal(e) {
+      document.getElementById("modal-title").textContent = e.title;
+      document.getElementById("modal-src").textContent = e.source || "Local";
+      document.getElementById("modal-when").textContent = formatFullWhen(e.start, e.all_day);
+      document.getElementById("modal-where").textContent = shortLocation(e.location) || "Warsaw area";
+      document.getElementById("modal-blurb").textContent =
+        e.blurb || "Local event. Use the link below if you need tickets or the full agenda.";
+
+      const actions = document.getElementById("modal-actions");
+      actions.innerHTML = "";
+      if (e.url) {
+        const a = document.createElement("a");
+        a.href = e.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.className = "btn btn-primary";
+        a.textContent = "More details";
+        actions.appendChild(a);
+      }
+      const close = document.createElement("button");
+      close.type = "button";
+      close.className = "btn";
+      close.textContent = "Close";
+      close.addEventListener("click", closeModal);
+      actions.appendChild(close);
+
+      const overlay = document.getElementById("overlay");
+      overlay.hidden = false;
+      overlay.classList.add("open");
+      document.getElementById("close-btn").focus();
+    }
+
+    function closeModal() {
+      const overlay = document.getElementById("overlay");
+      overlay.classList.remove("open");
+      overlay.hidden = true;
+    }
+
+    document.getElementById("close-btn").addEventListener("click", closeModal);
+    document.getElementById("overlay").addEventListener("click", function (ev) {
+      if (ev.target === this) closeModal();
+    });
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape") closeModal();
+    });
+
     function renderEvents(data) {
       const box = document.getElementById("events");
       const note = document.getElementById("data-note");
       const hint = document.getElementById("events-hint");
-      const events = data.events || [];
+      allEvents = data.events || [];
 
-      if (!events.length) {
+      if (!allEvents.length) {
         box.innerHTML = '<div class="empty">No upcoming events found.</div>';
         note.textContent = "No upcoming items in the combined calendar.";
         return;
@@ -254,10 +432,10 @@
       note.textContent =
         "Combined from " + sources + "." +
         (when ? " Updated " + when + "." : "");
-      if (hint) hint.textContent = events.length + " events";
+      if (hint) hint.textContent = allEvents.length + " events · tap for details";
 
-      box.innerHTML = events
-        .map((e) => {
+      box.innerHTML = allEvents
+        .map((e, i) => {
           const d = new Date(e.start);
           const day = DAYS[d.getDay()];
           const num = d.getDate();
@@ -265,18 +443,15 @@
           const loc = shortLocation(e.location);
           const meta = [time, loc].filter(Boolean).join(" · ");
           const src = e.source ? '<span class="src">' + e.source + "</span>" : "";
-          const title = e.url
-            ? '<a href="' + e.url + '" target="_blank" rel="noopener">' + e.title + "</a>"
-            : e.title;
           return (
-            '<article class="event">' +
+            '<article class="event" role="button" tabindex="0" data-idx="' + i + '">' +
             '<div class="date-box"><div class="day">' +
             day +
             '</div><div class="num">' +
             num +
             "</div></div>" +
             "<div><h3>" +
-            title +
+            e.title +
             src +
             '</h3><div class="meta">' +
             meta +
@@ -284,6 +459,17 @@
           );
         })
         .join("");
+
+      box.querySelectorAll(".event").forEach((el) => {
+        const open = () => openModal(allEvents[Number(el.dataset.idx)]);
+        el.addEventListener("click", open);
+        el.addEventListener("keydown", (ev) => {
+          if (ev.key === "Enter" || ev.key === " ") {
+            ev.preventDefault();
+            open();
+          }
+        });
+      });
     }
 
     fetch("events.json")
