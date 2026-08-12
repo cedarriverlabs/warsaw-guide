@@ -1,1 +1,21 @@
-PLACEHOLDER
+{
+  "generated_at": "2026-08-12T02:05:30Z",
+  "sources": [
+    "City of Warsaw iCal",
+    "Warsaw Parks Concerts",
+    "Visit Kosciusko County",
+    "Wagon Wheel Center for the Arts",
+    "Kosciusko County Farmers & Artisans Market"
+  ],
+  "count": 35,
+  "categories": [
+    "All",
+    "Concert",
+    "Market",
+    "Festival",
+    "Theatre",
+    "City Meeting",
+    "Holiday"
+  ],
+  "events": []
+}
