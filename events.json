@@ -39,6 +39,17 @@
       "source": "Kosciusko County Farmers & Artisans Market",
       "blurb": "Local produce, handmade goods, and artisan vendors every Saturday morning on Center Street.",
       "category": "Market"
+    },
+    {
+      "uid": "meeting-2026-08-11",
+      "title": "Redevelopment Commission",
+      "start": "2026-08-11T17:00:00",
+      "all_day": false,
+      "location": "City Hall, Warsaw",
+      "url": "https://warsaw.in.gov",
+      "source": "City of Warsaw",
+      "blurb": "Regular meeting of the Redevelopment Commission. Public welcome.",
+      "category": "City Meeting"
     }
   ]
 }
