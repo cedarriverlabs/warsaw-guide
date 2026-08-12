@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Warsaw Guide — What's on in Warsaw, IN</title>
+  <meta name="description" content="One place for what's happening and what's open in Warsaw, Indiana and nearby lakes." />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --panel: #ffffff;
+      --fg: #1a1d21;
+      --muted: #5c6570;
+      --accent: #1d4ed8;
+      --accent-soft: #eff6ff;
+      --border: #e5e7eb;
+      --success: #047857;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.5;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      margin-bottom: 1.75rem;
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand { font-weight: 700; font-size: 1.15rem; color: var(--fg); }
+    .brand span { color: var(--accent); }
+    .tag {
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    .lede { color: var(--muted); margin: 0 0 1.75rem; max-width: 36rem; }
+    section { margin-bottom: 2.25rem; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin: 0;
+      font-weight: 650;
+    }
+    .hint { font-size: 0.85rem; color: var(--muted); }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .event {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
+      gap: 1rem;
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .event:last-child { border-bottom: none; }
+    .date-box {
+      text-align: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 8px;
+      padding: 0.45rem 0.25rem;
+      line-height: 1.2;
+    }
+    .date-box .day { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+    .date-box .num { font-size: 1.25rem; font-weight: 700; }
+    .event h3 { margin: 0 0 0.2rem; font-size: 1rem; font-weight: 600; }
+    .meta { font-size: 0.85rem; color: var(--muted); }
+    .places {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.85rem;
+    }
+    .place {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+    }
+    .place h3 { margin: 0 0 0.25rem; font-size: 0.98rem; font-weight: 600; }
+    .place .cat { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--success);
+    }
+    .status::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .status.closed { color: #b45309; }
+    .hours { font-size: 0.85rem; color: var(--muted); margin-top: 0.35rem; }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .note {
+      background: var(--accent-soft);
+      border: 1px solid #dbeafe;
+      color: #1e3a8a;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">Warsaw <span>Guide</span></div>
+      <div class="tag">Warsaw · Winona Lake</div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <h1>What's on in Warsaw</h1>
+    <p class="lede">One place for events, hours, and what's open — so you don't have to check five different sites.</p>
+
+    <div class="note">
+      Early shell. Event and place data below is placeholder until we wire real sources.
+    </div>
+
+    <section>
+      <div class="section-head">
+        <h2>This weekend</h2>
+        <span class="hint">Events</span>
+      </div>
+      <div class="card" id="events">
+        <article class="event">
+          <div class="date-box">
+            <div class="day">Sat</div>
+            <div class="num">15</div>
+          </div>
+          <div>
+            <h3>Farmers Market</h3>
+            <div class="meta">9:00 AM – 1:00 PM · Center Street, Downtown Warsaw</div>
+          </div>
+        </article>
+        <article class="event">
+          <div class="date-box">
+            <div class="day">Fri</div>
+            <div class="num">14</div>
+          </div>
+          <div>
+            <h3>Sip N Shop</h3>
+            <div class="meta">5:00 PM – 7:00 PM · Downtown Warsaw</div>
+          </div>
+        </article>
+        <article class="event">
+          <div class="date-box">
+            <div class="day">Fri</div>
+            <div class="num">14</div>
+          </div>
+          <div>
+            <h3>Summer Concert Series</h3>
+            <div class="meta">7:00 PM · Central Park / Glover Pavilion</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Places</h2>
+        <span class="hint">Hours · open now (placeholder)</span>
+      </div>
+      <div class="places" id="places">
+        <article class="place">
+          <h3>Downtown shops & dining</h3>
+          <div class="cat">Area · Center / Buffalo</div>
+          <div class="status">Open · sample</div>
+          <div class="hours">Hours vary by business</div>
+        </article>
+        <article class="place">
+          <h3>Wagon Wheel Center for the Arts</h3>
+          <div class="cat">Theatre · Winona Lake area</div>
+          <div class="status">See showtimes</div>
+          <div class="hours">Check current production schedule</div>
+        </article>
+        <article class="place">
+          <h3>Pike Lake / Center Lake beaches</h3>
+          <div class="cat">Parks · seasonal</div>
+          <div class="status closed">Hours depend on season</div>
+          <div class="hours">City parks schedule</div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      Warsaw Guide · a Cedar River Labs project · data sources coming next
+    </footer>
+  </div>
+</body>
+</html>
