@@ -1,1 +1,233 @@
-PLACEHOLDER
+{
+  "generated_at": "2026-08-12T02:27:39Z",
+  "sources": [
+    "North Pointe Cinemas",
+    "Wagon Wheel Center for the Arts",
+    "City of Warsaw iCal",
+    "Warsaw Parks Concerts",
+    "Visit Kosciusko County",
+    "Kosciusko County Farmers & Artisans Market"
+  ],
+  "count": 19,
+  "categories": [
+    "All",
+    "Concert",
+    "Market",
+    "Festival",
+    "Theatre",
+    "Movies",
+    "City Meeting",
+    "Holiday"
+  ],
+  "events": [
+    {
+      "uid": "npc-spider-man-brand-new-day",
+      "title": "Spider-Man: Brand New Day",
+      "start": "2026-08-12T10:50:00",
+      "all_day": false,
+      "location": "North Pointe Cinemas, 1060 Mariner Drive",
+      "url": "https://www.northpointecinemas.com/",
+      "source": "North Pointe Cinemas",
+      "blurb": "Now playing. Showtimes this week include morning, afternoon, and evening (plus 3D). Tap Buy tickets for the full schedule and to purchase.",
+      "category": "Movies"
+    },
+    {
+      "uid": "npc-moana",
+      "title": "Moana",
+      "start": "2026-08-12T10:50:00",
+      "all_day": false,
+      "location": "North Pointe Cinemas, 1060 Mariner Drive",
+      "url": "https://www.northpointecinemas.com/",
+      "source": "North Pointe Cinemas",
+      "blurb": "Now playing. Family showtimes morning, afternoon, and evening. Tap Buy tickets for the full schedule and to purchase.",
+      "category": "Movies"
+    },
+    {
+      "uid": "npc-toy-story-5",
+      "title": "Toy Story 5",
+      "start": "2026-08-12T11:10:00",
+      "all_day": false,
+      "location": "North Pointe Cinemas, 1060 Mariner Drive",
+      "url": "https://www.northpointecinemas.com/",
+      "source": "North Pointe Cinemas",
+      "blurb": "Now playing. Family-friendly showtimes morning through evening; late shows weekends. Tap Buy tickets for the full schedule and to purchase.",
+      "category": "Movies"
+    },
+    {
+      "uid": "npc-the-odyssey",
+      "title": "The Odyssey",
+      "start": "2026-08-12T11:20:00",
+      "all_day": false,
+      "location": "North Pointe Cinemas, 1060 Mariner Drive",
+      "url": "https://www.northpointecinemas.com/",
+      "source": "North Pointe Cinemas",
+      "blurb": "Now playing. Multiple showtimes daily (morning through evening). Tap Buy tickets for the full schedule and to purchase.",
+      "category": "Movies"
+    },
+    {
+      "uid": "npc-super-troopers-3",
+      "title": "Super Troopers 3",
+      "start": "2026-08-12T11:30:00",
+      "all_day": false,
+      "location": "North Pointe Cinemas, 1060 Mariner Drive",
+      "url": "https://www.northpointecinemas.com/",
+      "source": "North Pointe Cinemas",
+      "blurb": "Now playing. Afternoon and evening showtimes; late shows on weekends. Tap Buy tickets for the full schedule and to purchase.",
+      "category": "Movies"
+    },
+    {
+      "uid": "npc-one-night-only",
+      "title": "One Night Only",
+      "start": "2026-08-12T11:55:00",
+      "all_day": false,
+      "location": "North Pointe Cinemas, 1060 Mariner Drive",
+      "url": "https://www.northpointecinemas.com/",
+      "source": "North Pointe Cinemas",
+      "blurb": "Now playing. Multiple showtimes daily; late shows Fri-Sat. Tap Buy tickets for the full schedule and to purchase.",
+      "category": "Movies"
+    },
+    {
+      "uid": "npc-minions-monsters",
+      "title": "Minions & Monsters",
+      "start": "2026-08-12T12:00:00",
+      "all_day": false,
+      "location": "North Pointe Cinemas, 1060 Mariner Drive",
+      "url": "https://www.northpointecinemas.com/",
+      "source": "North Pointe Cinemas",
+      "blurb": "Now playing. Afternoon family showtimes. Tap Buy tickets for the full schedule and to purchase.",
+      "category": "Movies"
+    },
+    {
+      "uid": "npc-paw-patrol-dino",
+      "title": "PAW Patrol: The Dino Movie",
+      "start": "2026-08-13T15:00:00",
+      "all_day": false,
+      "location": "North Pointe Cinemas, 1060 Mariner Drive",
+      "url": "https://www.northpointecinemas.com/",
+      "source": "North Pointe Cinemas",
+      "blurb": "Opens Thursday, Aug 13. Multiple family showtimes. Tap Buy tickets for the full schedule and to purchase.",
+      "category": "Movies"
+    },
+    {
+      "uid": "concert-2026-08-14",
+      "title": "Summer Concert: ThunderBeard (ZZ Top Tribute)",
+      "start": "2026-08-14T19:00:00",
+      "all_day": false,
+      "location": "Central Park Glover Pavilion, Warsaw",
+      "url": "https://warsaw.in.gov/201/Concerts",
+      "source": "Warsaw Parks",
+      "blurb": "Free outdoor summer concert. ZZ Top tribute band ThunderBeard at Central Park Glover Pavilion. Bring a chair or blanket; family-friendly.",
+      "category": "Concert"
+    },
+    {
+      "uid": "farmers-market-2026-08-16",
+      "title": "Kosciusko County Farmers & Artisans Market",
+      "start": "2026-08-16T09:00:00",
+      "all_day": false,
+      "location": "Center Street, Warsaw",
+      "url": "https://visitkosciuskocounty.org/",
+      "source": "Farmers Market",
+      "blurb": "Local produce, baked goods, and artisan vendors on Center Street. Typically Saturday mornings through the season.",
+      "category": "Market"
+    },
+    {
+      "uid": "4492",
+      "title": "Redevelopment Commission",
+      "start": "2026-08-17T16:00:00",
+      "all_day": false,
+      "location": "Police Department - 2191 E. Fort Wayne Street, Warsaw",
+      "url": "https://www.warsaw.in.gov/calendar.aspx?EID=4492",
+      "source": "City of Warsaw",
+      "blurb": "Public city meeting. Agenda usually posted on the City of Warsaw calendar. Open to the public.",
+      "category": "City Meeting"
+    },
+    {
+      "uid": "4459",
+      "title": "Common Council",
+      "start": "2026-08-17T18:00:00",
+      "all_day": false,
+      "location": "Police Department - 2191 E. Fort Wayne Street, Warsaw",
+      "url": "https://www.warsaw.in.gov/calendar.aspx?EID=4459",
+      "source": "City of Warsaw",
+      "blurb": "Public city meeting. Agenda usually posted on the City of Warsaw calendar. Open to the public.",
+      "category": "City Meeting"
+    },
+    {
+      "uid": "concert-2026-08-21",
+      "title": "Summer Concert: American Legion Band",
+      "start": "2026-08-21T19:00:00",
+      "all_day": false,
+      "location": "Central Park Plaza, Warsaw",
+      "url": "https://warsaw.in.gov/201/Concerts",
+      "source": "Warsaw Parks",
+      "blurb": "Free outdoor summer concert. American Legion Band of Fort Wayne at Central Park Plaza. Bring a chair or blanket.",
+      "category": "Concert"
+    },
+    {
+      "uid": "canal-days-2026-08-22",
+      "title": "Canal Days",
+      "start": "2026-08-22T00:00:00",
+      "all_day": true,
+      "location": "The Village at Winona, Winona Lake",
+      "url": "https://visitkosciuskocounty.org/blog/2026-major-events-in-kosciusko-county/",
+      "source": "Visit Kosciusko County",
+      "blurb": "End-of-summer festival at The Village at Winona. Family activities, crafts, food vendors along the canal, and kids activities.",
+      "category": "Festival"
+    },
+    {
+      "uid": "farmers-market-2026-08-23",
+      "title": "Kosciusko County Farmers & Artisans Market",
+      "start": "2026-08-23T09:00:00",
+      "all_day": false,
+      "location": "Center Street, Warsaw",
+      "url": "https://visitkosciuskocounty.org/",
+      "source": "Farmers Market",
+      "blurb": "Local produce, baked goods, and artisan vendors on Center Street. Typically Saturday mornings through the season.",
+      "category": "Market"
+    },
+    {
+      "uid": "concert-2026-08-28",
+      "title": "Summer Concert: Lake Area Community Band",
+      "start": "2026-08-28T19:00:00",
+      "all_day": false,
+      "location": "Central Park Plaza, Warsaw",
+      "url": "https://warsaw.in.gov/201/Concerts",
+      "source": "Warsaw Parks",
+      "blurb": "Free outdoor summer concert. Lake Area Community Band at Central Park Plaza. Bring a chair or blanket; family-friendly.",
+      "category": "Concert"
+    },
+    {
+      "uid": "ww-midsummer-2026",
+      "title": "A Midsummer Night's Dream",
+      "start": "2026-09-25T19:00:00",
+      "all_day": false,
+      "location": "Wagon Wheel Center for the Arts, 2515 E. Center St.",
+      "url": "https://wagonwheelcenter.org/event/community-theatre-a-midsummer-nights-dream/",
+      "source": "Wagon Wheel",
+      "blurb": "Wagon Wheel Community Theatre. Shakespeare's comedy with a 1980s makeover — lovers, fairies, and mistaken identities. Runs Sept 25-27. Tap Buy tickets for dates, times, and seats.",
+      "category": "Theatre"
+    },
+    {
+      "uid": "ww-sleepy-hollow-2026",
+      "title": "Sleepy Hollow, the Musical",
+      "start": "2026-10-23T19:00:00",
+      "all_day": false,
+      "location": "Wagon Wheel Center for the Arts, 2515 E. Center St.",
+      "url": "https://wagonwheelcenter.org/event/sleepy-hollow-the-musical/",
+      "source": "Wagon Wheel",
+      "blurb": "Wagon Wheel Junior presents this family-friendly Halloween musical — Ichabod Crane, rivalries, and the Headless Horseman. Runs Oct 23-25. Tap Buy tickets for dates, times, and seats.",
+      "category": "Theatre"
+    },
+    {
+      "uid": "ww-annie-2026",
+      "title": "Annie",
+      "start": "2026-12-04T19:00:00",
+      "all_day": false,
+      "location": "Wagon Wheel Center for the Arts, 2515 E. Center St.",
+      "url": "https://wagonwheelcenter.org/event/annie-holiday-musical-2026/",
+      "source": "Wagon Wheel",
+      "blurb": "Holiday musical in the theatre-in-the-round. Orphan Annie, Oliver Warbucks, and songs like Tomorrow. Runs Dec 4-20. Tap Buy tickets for dates, times, and seats.",
+      "category": "Theatre"
+    }
+  ]
+}
