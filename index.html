@@ -251,8 +251,12 @@
         note.textContent = "No upcoming items in the combined calendar.";
         return;
       }
-      categoryList = (data.categories && data.categories.length) ? data.categories :
-        ["All"].concat(Array.from(new Set(allEvents.map(function (e) { return e.category; }).filter(Boolean)));
+      if (data.categories && data.categories.length) {
+        categoryList = data.categories;
+      } else {
+        const found = Array.from(new Set(allEvents.map(function (e) { return e.category; }).filter(Boolean)));
+        categoryList = ["All"].concat(found);
+      }
       const when = data.generated_at ? new Date(data.generated_at).toLocaleString("en-US", { timeZone: "America/Indiana/Indianapolis" }) : "";
       note.textContent = "Combined from " + ((data.sources || []).join(", ") || "local sources") + "." + (when ? " Updated " + when + "." : "");
       renderFilters();
