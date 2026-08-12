@@ -1,8 +1,32 @@
 {
-  "generated_at": "2026-08-12T01:42:13.742898Z",
-  "source": "https://www.warsaw.in.gov/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar",
-  "count": 23,
+  "generated_at": "2026-08-12T01:51:00Z",
+  "sources": [
+    "City of Warsaw iCal",
+    "Warsaw Parks Concerts",
+    "Visit Kosciusko County",
+    "Wagon Wheel Center for the Arts",
+    "Downtown Warsaw (farmers market)"
+  ],
+  "count": 35,
   "events": [
+    {
+      "uid": "concert-2026-08-14",
+      "title": "Summer Concert: ThunderBeard (ZZ Top Tribute)",
+      "start": "2026-08-14T19:00:00",
+      "all_day": false,
+      "location": "Central Park Glover Pavilion, Warsaw",
+      "url": "https://warsaw.in.gov/201/Concerts",
+      "source": "Warsaw Parks"
+    },
+    {
+      "uid": "farmers-market-recurring",
+      "title": "Kosciusko County Farmers & Artisans Market",
+      "start": "2026-08-16T09:00:00",
+      "all_day": false,
+      "location": "Center Street, Downtown Warsaw",
+      "url": "https://downtownwarsaw.com/",
+      "source": "Downtown Warsaw"
+    },
     {
       "uid": "4492",
       "title": "Redevelopment Commission",
@@ -40,6 +64,33 @@
       "source": "City of Warsaw"
     },
     {
+      "uid": "concert-2026-08-21",
+      "title": "Summer Concert: American Legion Band of Fort Wayne",
+      "start": "2026-08-21T19:00:00",
+      "all_day": false,
+      "location": "Central Park Plaza, Warsaw",
+      "url": "https://warsaw.in.gov/201/Concerts",
+      "source": "Warsaw Parks"
+    },
+    {
+      "uid": "canal-days-2026-08-22",
+      "title": "Canal Days",
+      "start": "2026-08-22T00:00:00",
+      "all_day": true,
+      "location": "The Village at Winona, Winona Lake",
+      "url": "https://visitkosciuskocounty.org/blog/2026-major-events-in-kosciusko-county/",
+      "source": "Visit Kosciusko County"
+    },
+    {
+      "uid": "farmers-market-2026-08-23",
+      "title": "Kosciusko County Farmers & Artisans Market",
+      "start": "2026-08-23T09:00:00",
+      "all_day": false,
+      "location": "Center Street, Downtown Warsaw",
+      "url": "https://downtownwarsaw.com/",
+      "source": "Downtown Warsaw"
+    },
+    {
       "uid": "4390",
       "title": "Board of Zoning Appeals",
       "start": "2026-08-24T19:00:00",
@@ -47,6 +98,24 @@
       "location": "City Hall - 102 S. Buffalo Street Warsaw IN 46580",
       "url": "https://www.warsaw.in.gov/calendar.aspx?EID=4390",
       "source": "City of Warsaw"
+    },
+    {
+      "uid": "concert-2026-08-28",
+      "title": "Summer Concert: Lake Area Community Band",
+      "start": "2026-08-28T19:00:00",
+      "all_day": false,
+      "location": "Central Park Plaza, Warsaw",
+      "url": "https://warsaw.in.gov/201/Concerts",
+      "source": "Warsaw Parks"
+    },
+    {
+      "uid": "farmers-market-2026-08-30",
+      "title": "Kosciusko County Farmers & Artisans Market",
+      "start": "2026-08-30T09:00:00",
+      "all_day": false,
+      "location": "Center Street, Downtown Warsaw",
+      "url": "https://downtownwarsaw.com/",
+      "source": "Downtown Warsaw"
     },
     {
       "uid": "4415",
@@ -74,6 +143,15 @@
       "location": "City Hall - 102 S. Buffalo Street Warsaw IN 46580",
       "url": "https://www.warsaw.in.gov/calendar.aspx?EID=4426",
       "source": "City of Warsaw"
+    },
+    {
+      "uid": "farmers-market-2026-09-06",
+      "title": "Kosciusko County Farmers & Artisans Market",
+      "start": "2026-09-06T09:00:00",
+      "all_day": false,
+      "location": "Center Street, Downtown Warsaw",
+      "url": "https://downtownwarsaw.com/",
+      "source": "Downtown Warsaw"
     },
     {
       "uid": "4470",
@@ -112,6 +190,15 @@
       "source": "City of Warsaw"
     },
     {
+      "uid": "farmers-market-2026-09-13",
+      "title": "Kosciusko County Farmers & Artisans Market",
+      "start": "2026-09-13T09:00:00",
+      "all_day": false,
+      "location": "Center Street, Downtown Warsaw",
+      "url": "https://downtownwarsaw.com/",
+      "source": "Downtown Warsaw"
+    },
+    {
       "uid": "4379",
       "title": "Plan Commission",
       "start": "2026-09-14T19:00:00",
@@ -139,6 +226,15 @@
       "source": "City of Warsaw"
     },
     {
+      "uid": "taste-kosciusko-2026-09-18",
+      "title": "Taste of Kosciusko",
+      "start": "2026-09-18T17:00:00",
+      "all_day": false,
+      "location": "Downtown Warsaw",
+      "url": "https://visitkosciuskocounty.org/blog/2026-major-events-in-kosciusko-county/",
+      "source": "Visit Kosciusko County"
+    },
+    {
       "uid": "4493",
       "title": "Redevelopment Commission",
       "start": "2026-09-21T16:00:00",
@@ -155,6 +251,15 @@
       "location": "City Hall - 102 S. Buffalo Street Warsaw IN 46580",
       "url": "https://www.warsaw.in.gov/calendar.aspx?EID=4460",
       "source": "City of Warsaw"
+    },
+    {
+      "uid": "ww-midsummer-2026-09-25",
+      "title": "A Midsummer Night's Dream",
+      "start": "2026-09-25T00:00:00",
+      "all_day": true,
+      "location": "Wagon Wheel Center for the Arts",
+      "url": "https://wagonwheelcenter.org/event/community-theatre-a-midsummer-nights-dream/",
+      "source": "Wagon Wheel"
     },
     {
       "uid": "4391",
@@ -209,6 +314,15 @@
       "location": "City Hall - 102 S. Buffalo Street Warsaw IN 46580",
       "url": "https://www.warsaw.in.gov/calendar.aspx?EID=4416",
       "source": "City of Warsaw"
+    },
+    {
+      "uid": "ww-sleepy-2026-10-23",
+      "title": "Sleepy Hollow, the Musical",
+      "start": "2026-10-23T00:00:00",
+      "all_day": true,
+      "location": "Wagon Wheel Center for the Arts",
+      "url": "https://wagonwheelcenter.org/event/sleepy-hollow-the-musical/",
+      "source": "Wagon Wheel"
     }
   ]
 }
