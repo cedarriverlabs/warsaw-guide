@@ -17,5 +17,28 @@
     "City Meeting",
     "Holiday"
   ],
-  "events": []
+  "events": [
+    {
+      "uid": "concert-2026-08-14",
+      "title": "Summer Concert: ThunderBeard (ZZ Top Tribute)",
+      "start": "2026-08-14T19:00:00",
+      "all_day": false,
+      "location": "Central Park Glover Pavilion, Warsaw",
+      "url": "https://warsaw.in.gov/201/Concerts",
+      "source": "Warsaw Parks",
+      "blurb": "Free outdoor summer concert. ZZ Top tribute band ThunderBeard at Central Park Glover Pavilion. Bring a chair or blanket.",
+      "category": "Concert"
+    },
+    {
+      "uid": "market-2026-08-15",
+      "title": "Kosciusko County Farmers & Artisans Market",
+      "start": "2026-08-15T08:00:00",
+      "all_day": false,
+      "location": "Center Street, Warsaw",
+      "url": "https://visitkosciuskocounty.org",
+      "source": "Kosciusko County Farmers & Artisans Market",
+      "blurb": "Local produce, handmade goods, and artisan vendors every Saturday morning on Center Street.",
+      "category": "Market"
+    }
+  ]
 }
