@@ -177,6 +177,44 @@
       font-size: 0.85rem;
       font-weight: 600;
     }
+    .hotels {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.85rem;
+    }
+    .hotel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .hotel h3 { margin: 0 0 0.2rem; font-size: 0.98rem; font-weight: 600; }
+    .hotel .addr { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.55rem; }
+    .hotel-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.85rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.65rem;
+    }
+    .rating {
+      font-weight: 650;
+      color: var(--fg);
+    }
+    .rating span { color: var(--muted); font-weight: 500; }
+    .price {
+      font-weight: 650;
+      color: var(--success);
+    }
+    .hotel a.more {
+      margin-top: auto;
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding-top: 0.35rem;
+    }
     footer {
       margin-top: 2rem;
       padding-top: 1.25rem;
@@ -385,6 +423,87 @@
           <div class="cat">Parks · seasonal</div>
           <div class="status closed">Seasonal hours</div>
           <div class="hours">City parks schedule</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Hotels</h2>
+        <span class="hint">Local stays · rates approximate</span>
+      </div>
+      <div class="hotels">
+        <article class="hotel">
+          <h3>Tru by Hilton Warsaw</h3>
+          <div class="addr">200 Prosperity Drive</div>
+          <div class="hotel-stats">
+            <div class="rating">9.0 <span>· Booking</span></div>
+            <div class="price">From ~$89/night</div>
+          </div>
+          <a class="more" href="https://www.booking.com/searchresults.html?ss=Tru+by+Hilton+Warsaw+IN" target="_blank" rel="noopener">Check availability →</a>
+        </article>
+        <article class="hotel">
+          <h3>Hampton Inn Warsaw</h3>
+          <div class="addr">115 Robmar Drive</div>
+          <div class="hotel-stats">
+            <div class="rating">8.5 <span>· guest score</span></div>
+            <div class="price">From ~$113/night</div>
+          </div>
+          <a class="more" href="https://www.booking.com/searchresults.html?ss=Hampton+Inn+Warsaw+IN" target="_blank" rel="noopener">Check availability →</a>
+        </article>
+        <article class="hotel">
+          <h3>Holiday Inn Express & Suites</h3>
+          <div class="addr">300 Prosperity Drive</div>
+          <div class="hotel-stats">
+            <div class="rating">9.0 <span>· guest score</span></div>
+            <div class="price">From ~$99/night</div>
+          </div>
+          <a class="more" href="https://www.booking.com/searchresults.html?ss=Holiday+Inn+Express+Warsaw+IN" target="_blank" rel="noopener">Check availability →</a>
+        </article>
+        <article class="hotel">
+          <h3>Fairfield Inn & Suites</h3>
+          <div class="addr">54 Petro Drive</div>
+          <div class="hotel-stats">
+            <div class="rating">9.0 <span>· guest score</span></div>
+            <div class="price">From ~$108/night</div>
+          </div>
+          <a class="more" href="https://www.booking.com/searchresults.html?ss=Fairfield+Inn+Warsaw+IN" target="_blank" rel="noopener">Check availability →</a>
+        </article>
+        <article class="hotel">
+          <h3>Comfort Inn & Suites</h3>
+          <div class="addr">3328 East Center Street</div>
+          <div class="hotel-stats">
+            <div class="rating">7.1 <span>· guest score</span></div>
+            <div class="price">From ~$77/night</div>
+          </div>
+          <a class="more" href="https://www.booking.com/searchresults.html?ss=Comfort+Inn+Suites+Warsaw+IN" target="_blank" rel="noopener">Check availability →</a>
+        </article>
+        <article class="hotel">
+          <h3>Best Western Plus Warsaw</h3>
+          <div class="addr">3825 Lake City Highway</div>
+          <div class="hotel-stats">
+            <div class="rating">6.9 <span>· guest score</span></div>
+            <div class="price">From ~$76/night</div>
+          </div>
+          <a class="more" href="https://www.booking.com/searchresults.html?ss=Best+Western+Plus+Warsaw+IN" target="_blank" rel="noopener">Check availability →</a>
+        </article>
+        <article class="hotel">
+          <h3>Wyndham Garden Warsaw</h3>
+          <div class="addr">2519 East Center Street</div>
+          <div class="hotel-stats">
+            <div class="rating">6.3 <span>· guest score</span></div>
+            <div class="price">From ~$63/night</div>
+          </div>
+          <a class="more" href="https://www.booking.com/searchresults.html?ss=Wyndham+Garden+Warsaw+IN" target="_blank" rel="noopener">Check availability →</a>
+        </article>
+        <article class="hotel">
+          <h3>Days Inn by Wyndham</h3>
+          <div class="addr">3014 Frontage Road</div>
+          <div class="hotel-stats">
+            <div class="rating">7.6 <span>· guest score</span></div>
+            <div class="price">From ~$56/night</div>
+          </div>
+          <a class="more" href="https://www.booking.com/searchresults.html?ss=Days+Inn+Warsaw+IN" target="_blank" rel="noopener">Check availability →</a>
         </article>
       </div>
     </section>
