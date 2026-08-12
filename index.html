@@ -99,6 +99,16 @@
     .date-box .num { font-size: 1.25rem; font-weight: 700; }
     .event h3 { margin: 0 0 0.2rem; font-size: 1rem; font-weight: 600; }
     .meta { font-size: 0.85rem; color: var(--muted); }
+    .src {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 0.1rem 0.5rem;
+      margin-left: 0.35rem;
+    }
     .places {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -160,14 +170,12 @@
     <h1>What's on in Warsaw</h1>
     <p class="lede">One place for events, hours, and what's open — so you don't have to check five different sites.</p>
 
-    <div class="note" id="data-note">
-      Loading city calendar…
-    </div>
+    <div class="note" id="data-note">Loading events…</div>
 
     <section>
       <div class="section-head">
         <h2>Upcoming</h2>
-        <span class="hint" id="events-hint">City of Warsaw</span>
+        <span class="hint" id="events-hint">Local calendar</span>
       </div>
       <div class="card" id="events">
         <div class="empty">Loading events…</div>
@@ -189,8 +197,8 @@
         <article class="place">
           <h3>Wagon Wheel Center for the Arts</h3>
           <div class="cat">Theatre · Winona Lake area</div>
-          <div class="status closed">Showtimes coming soon</div>
-          <div class="hours">Separate event source later</div>
+          <div class="status closed">See Upcoming for shows</div>
+          <div class="hours">Showtimes listed above</div>
         </article>
         <article class="place">
           <h3>Pike Lake / Center Lake beaches</h3>
@@ -202,7 +210,7 @@
     </section>
 
     <footer>
-      Warsaw Guide · a Cedar River Labs project · first source: City of Warsaw calendar
+      Warsaw Guide · a Cedar River Labs project · parks, market, city, theatre & more
     </footer>
   </div>
 
@@ -230,21 +238,23 @@
     function renderEvents(data) {
       const box = document.getElementById("events");
       const note = document.getElementById("data-note");
+      const hint = document.getElementById("events-hint");
       const events = data.events || [];
 
       if (!events.length) {
-        box.innerHTML = '<div class="empty">No upcoming city events in the next 60 days.</div>';
-        note.textContent = "Connected to City of Warsaw calendar — no upcoming items.";
+        box.innerHTML = '<div class="empty">No upcoming events found.</div>';
+        note.textContent = "No upcoming items in the combined calendar.";
         return;
       }
 
       const when = data.generated_at
         ? new Date(data.generated_at).toLocaleString("en-US", { timeZone: "America/Indiana/Indianapolis" })
         : "";
-
+      const sources = (data.sources || []).join(", ") || "local sources";
       note.textContent =
-        "Live from the City of Warsaw public calendar (meetings & closures). Concerts, markets, and downtown events come next." +
-        (when ? " Data pulled " + when + "." : "");
+        "Combined from " + sources + "." +
+        (when ? " Updated " + when + "." : "");
+      if (hint) hint.textContent = events.length + " events";
 
       box.innerHTML = events
         .map((e) => {
@@ -254,6 +264,7 @@
           const time = formatTime(e.start, e.all_day);
           const loc = shortLocation(e.location);
           const meta = [time, loc].filter(Boolean).join(" · ");
+          const src = e.source ? '<span class="src">' + e.source + "</span>" : "";
           const title = e.url
             ? '<a href="' + e.url + '" target="_blank" rel="noopener">' + e.title + "</a>"
             : e.title;
@@ -266,6 +277,7 @@
             "</div></div>" +
             "<div><h3>" +
             title +
+            src +
             '</h3><div class="meta">' +
             meta +
             "</div></div></article>"
@@ -282,9 +294,9 @@
       .then(renderEvents)
       .catch((err) => {
         document.getElementById("events").innerHTML =
-          '<div class="empty">Could not load events. Open this site via a local server or GitHub Pages so events.json can load.</div>';
+          '<div class="empty">Could not load events.</div>';
         document.getElementById("data-note").textContent =
-          "Events file is in the repo; browser blocked loading from a raw file:// page. Use a static host or local server.";
+          "Could not load the events file.";
         console.error(err);
       });
   </script>
