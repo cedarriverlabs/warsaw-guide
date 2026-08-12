@@ -145,6 +145,7 @@
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
     }
+    .empty { padding: 1.25rem; color: var(--muted); font-size: 0.95rem; }
   </style>
 </head>
 <body>
@@ -159,46 +160,17 @@
     <h1>What's on in Warsaw</h1>
     <p class="lede">One place for events, hours, and what's open — so you don't have to check five different sites.</p>
 
-    <div class="note">
-      Early shell. Event and place data below is placeholder until we wire real sources.
+    <div class="note" id="data-note">
+      Loading city calendar…
     </div>
 
     <section>
       <div class="section-head">
-        <h2>This weekend</h2>
-        <span class="hint">Events</span>
+        <h2>Upcoming</h2>
+        <span class="hint" id="events-hint">City of Warsaw</span>
       </div>
       <div class="card" id="events">
-        <article class="event">
-          <div class="date-box">
-            <div class="day">Sat</div>
-            <div class="num">15</div>
-          </div>
-          <div>
-            <h3>Farmers Market</h3>
-            <div class="meta">9:00 AM – 1:00 PM · Center Street, Downtown Warsaw</div>
-          </div>
-        </article>
-        <article class="event">
-          <div class="date-box">
-            <div class="day">Fri</div>
-            <div class="num">14</div>
-          </div>
-          <div>
-            <h3>Sip N Shop</h3>
-            <div class="meta">5:00 PM – 7:00 PM · Downtown Warsaw</div>
-          </div>
-        </article>
-        <article class="event">
-          <div class="date-box">
-            <div class="day">Fri</div>
-            <div class="num">14</div>
-          </div>
-          <div>
-            <h3>Summer Concert Series</h3>
-            <div class="meta">7:00 PM · Central Park / Glover Pavilion</div>
-          </div>
-        </article>
+        <div class="empty">Loading events…</div>
       </div>
     </section>
 
@@ -211,27 +183,110 @@
         <article class="place">
           <h3>Downtown shops & dining</h3>
           <div class="cat">Area · Center / Buffalo</div>
-          <div class="status">Open · sample</div>
-          <div class="hours">Hours vary by business</div>
+          <div class="status closed">Hours coming soon</div>
+          <div class="hours">Will be seeded next</div>
         </article>
         <article class="place">
           <h3>Wagon Wheel Center for the Arts</h3>
           <div class="cat">Theatre · Winona Lake area</div>
-          <div class="status">See showtimes</div>
-          <div class="hours">Check current production schedule</div>
+          <div class="status closed">Showtimes coming soon</div>
+          <div class="hours">Separate event source later</div>
         </article>
         <article class="place">
           <h3>Pike Lake / Center Lake beaches</h3>
           <div class="cat">Parks · seasonal</div>
-          <div class="status closed">Hours depend on season</div>
+          <div class="status closed">Seasonal hours</div>
           <div class="hours">City parks schedule</div>
         </article>
       </div>
     </section>
 
     <footer>
-      Warsaw Guide · a Cedar River Labs project · data sources coming next
+      Warsaw Guide · a Cedar River Labs project · first source: City of Warsaw calendar
     </footer>
   </div>
+
+  <script>
+    const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    function formatTime(iso, allDay) {
+      if (allDay) return "All day";
+      const d = new Date(iso);
+      return d.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        timeZone: "America/Indiana/Indianapolis"
+      });
+    }
+
+    function shortLocation(loc) {
+      if (!loc) return "";
+      return loc
+        .replace(/\s*Warsaw IN 46580/i, "")
+        .replace(/\s*-\s*$/, "")
+        .trim();
+    }
+
+    function renderEvents(data) {
+      const box = document.getElementById("events");
+      const note = document.getElementById("data-note");
+      const events = data.events || [];
+
+      if (!events.length) {
+        box.innerHTML = '<div class="empty">No upcoming city events in the next 60 days.</div>';
+        note.textContent = "Connected to City of Warsaw calendar — no upcoming items.";
+        return;
+      }
+
+      const when = data.generated_at
+        ? new Date(data.generated_at).toLocaleString("en-US", { timeZone: "America/Indiana/Indianapolis" })
+        : "";
+
+      note.textContent =
+        "Live from the City of Warsaw public calendar (meetings & closures). Concerts, markets, and downtown events come next." +
+        (when ? " Data pulled " + when + "." : "");
+
+      box.innerHTML = events
+        .map((e) => {
+          const d = new Date(e.start);
+          const day = DAYS[d.getDay()];
+          const num = d.getDate();
+          const time = formatTime(e.start, e.all_day);
+          const loc = shortLocation(e.location);
+          const meta = [time, loc].filter(Boolean).join(" · ");
+          const title = e.url
+            ? '<a href="' + e.url + '" target="_blank" rel="noopener">' + e.title + "</a>"
+            : e.title;
+          return (
+            '<article class="event">' +
+            '<div class="date-box"><div class="day">' +
+            day +
+            '</div><div class="num">' +
+            num +
+            "</div></div>" +
+            "<div><h3>" +
+            title +
+            '</h3><div class="meta">' +
+            meta +
+            "</div></div></article>"
+          );
+        })
+        .join("");
+    }
+
+    fetch("events.json")
+      .then((r) => {
+        if (!r.ok) throw new Error("Could not load events.json");
+        return r.json();
+      })
+      .then(renderEvents)
+      .catch((err) => {
+        document.getElementById("events").innerHTML =
+          '<div class="empty">Could not load events. Open this site via a local server or GitHub Pages so events.json can load.</div>';
+        document.getElementById("data-note").textContent =
+          "Events file is in the repo; browser blocked loading from a raw file:// page. Use a static host or local server.";
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
