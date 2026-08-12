@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-12T01:51:00Z",
+  "generated_at": "2026-08-12T01:54:40Z",
   "sources": [
     "City of Warsaw iCal",
     "Warsaw Parks Concerts",
     "Visit Kosciusko County",
     "Wagon Wheel Center for the Arts",
-    "Downtown Warsaw (farmers market)"
+    "Kosciusko County Farmers & Artisans Market"
   ],
   "count": 35,
   "events": [
@@ -23,9 +23,9 @@
       "title": "Kosciusko County Farmers & Artisans Market",
       "start": "2026-08-16T09:00:00",
       "all_day": false,
-      "location": "Center Street, Downtown Warsaw",
-      "url": "https://downtownwarsaw.com/",
-      "source": "Downtown Warsaw"
+      "location": "Center Street, Warsaw",
+      "url": "https://visitkosciuskocounty.org/",
+      "source": "Farmers Market"
     },
     {
       "uid": "4492",
@@ -86,9 +86,9 @@
       "title": "Kosciusko County Farmers & Artisans Market",
       "start": "2026-08-23T09:00:00",
       "all_day": false,
-      "location": "Center Street, Downtown Warsaw",
-      "url": "https://downtownwarsaw.com/",
-      "source": "Downtown Warsaw"
+      "location": "Center Street, Warsaw",
+      "url": "https://visitkosciuskocounty.org/",
+      "source": "Farmers Market"
     },
     {
       "uid": "4390",
@@ -113,9 +113,9 @@
       "title": "Kosciusko County Farmers & Artisans Market",
       "start": "2026-08-30T09:00:00",
       "all_day": false,
-      "location": "Center Street, Downtown Warsaw",
-      "url": "https://downtownwarsaw.com/",
-      "source": "Downtown Warsaw"
+      "location": "Center Street, Warsaw",
+      "url": "https://visitkosciuskocounty.org/",
+      "source": "Farmers Market"
     },
     {
       "uid": "4415",
@@ -149,9 +149,9 @@
       "title": "Kosciusko County Farmers & Artisans Market",
       "start": "2026-09-06T09:00:00",
       "all_day": false,
-      "location": "Center Street, Downtown Warsaw",
-      "url": "https://downtownwarsaw.com/",
-      "source": "Downtown Warsaw"
+      "location": "Center Street, Warsaw",
+      "url": "https://visitkosciuskocounty.org/",
+      "source": "Farmers Market"
     },
     {
       "uid": "4470",
@@ -194,9 +194,9 @@
       "title": "Kosciusko County Farmers & Artisans Market",
       "start": "2026-09-13T09:00:00",
       "all_day": false,
-      "location": "Center Street, Downtown Warsaw",
-      "url": "https://downtownwarsaw.com/",
-      "source": "Downtown Warsaw"
+      "location": "Center Street, Warsaw",
+      "url": "https://visitkosciuskocounty.org/",
+      "source": "Farmers Market"
     },
     {
       "uid": "4379",
@@ -230,7 +230,7 @@
       "title": "Taste of Kosciusko",
       "start": "2026-09-18T17:00:00",
       "all_day": false,
-      "location": "Downtown Warsaw",
+      "location": "Center Street area, Warsaw",
       "url": "https://visitkosciuskocounty.org/blog/2026-major-events-in-kosciusko-county/",
       "source": "Visit Kosciusko County"
     },
